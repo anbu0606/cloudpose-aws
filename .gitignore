@@ -27,3 +27,7 @@ evidence/**/*.jpg
 evidence/**/*.jpeg
 evidence/**/*.gif
 evidence/**/*.webp
+
+# Third-party photos stay local (licences/privacy)
+load/images/
+tests/sample.jpg

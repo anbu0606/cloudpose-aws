@@ -14,8 +14,19 @@ from fastapi.testclient import TestClient  # noqa: E402
 import main  # noqa: E402
 
 client = TestClient(main.app)
-SAMPLE = Path(__file__).parent / "sample.jpg"
+import cv2  # noqa: E402
+import numpy as np  # noqa: E402
 
+def _make_sample() -> bytes:
+    """A synthetic stick figure, so the repo ships no third-party photos."""
+    img = np.full((256, 256, 3), 255, np.uint8)
+    cv2.circle(img, (128, 50), 20, (0, 0, 0), 3)                     # head
+    for a, b in [((128, 70), (128, 160)), ((128, 90), (80, 130)), ((128, 90), (176, 130)),
+                 ((128, 160), (95, 230)), ((128, 160), (161, 230))]:   # body, arms, legs
+        cv2.line(img, a, b, (0, 0, 0), 4)
+    return cv2.imencode(".jpg", img)[1].tobytes()
+
+SAMPLE_BYTES = _make_sample()
 
 def _payload():
     return {"id": "test-1", "image": base64.b64encode(SAMPLE.read_bytes()).decode()}
