@@ -1,0 +1,2 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+POST,/pose/image,"ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)",2,2026-10-17T11:53:39Z,2026-10-17T11:54:01Z

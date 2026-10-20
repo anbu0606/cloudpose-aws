@@ -1,0 +1,3 @@
+NAME                                    READY   STATUS    RESTARTS      AGE
+cloudpose-deployment-7cdf45d474-nzdhd   1/1     Running   2 (45s ago)   13h
+cloudpose-deployment-7cdf45d474-zfr52   1/1     Running   2 (45s ago)   13h

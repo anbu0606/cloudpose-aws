@@ -1,0 +1,3 @@
+NAME                                    READY   STATUS    RESTARTS   AGE
+cloudpose-deployment-7b7f948d65-tdtzd   1/1     Running   0          14m
+cloudpose-deployment-7b7f948d65-z6jhr   1/1     Running   0          33m

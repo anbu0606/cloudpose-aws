@@ -1,0 +1,97 @@
+# Values for kube-prometheus-stack on a local kind cluster.
+fullnameOverride: kps   # short, predictable names: kps-prometheus, kps-alertmanager, kps-grafana
+
+# kind runs these control-plane components bound to localhost inside the node,
+# so Prometheus can't scrape them and they'd show as permanently "down" + fire alerts.
+kubeEtcd:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeProxy:
+  enabled: false
+
+prometheus:
+  prometheusSpec:
+    scrapeInterval: 15s
+    retention: 2d
+    resources:
+      requests: { cpu: 200m, memory: 512Mi }
+    # Scrape CloudPose's /metrics directly by discovering its pods.
+    # (A ServiceMonitor CRD is the "operator way"; this avoids a CRD chicken-and-egg
+    # problem in a single terraform apply. Mention both in the interview.)
+    additionalScrapeConfigs:
+      - job_name: cloudpose
+        metrics_path: /metrics
+        kubernetes_sd_configs:
+          - role: pod
+            namespaces:
+              names: [default]
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_label_app]
+            regex: cloudpose
+            action: keep
+          - source_labels: [__meta_kubernetes_pod_container_port_number]
+            regex: "60007"
+            action: keep
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      requests: { cpu: 20m, memory: 64Mi }
+
+grafana:
+  defaultDashboardsTimezone: browser
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+
+# Alert rules (become a PrometheusRule object). Prometheus evaluates them every 15 s;
+# "for" = how long the condition must hold before the alert FIRES (avoids noise).
+additionalPrometheusRulesMap:
+  cloudpose:
+    groups:
+      - name: cloudpose.rules
+        rules:
+          - alert: CloudPoseHighPodCPU
+            expr: |
+              sum by (pod) (rate(container_cpu_usage_seconds_total{namespace="default", container="cloudpose"}[2m]))
+                /
+              sum by (pod) (kube_pod_container_resource_limits{namespace="default", container="cloudpose", resource="cpu"})
+                > 0.8
+            for: 2m
+            labels:
+              severity: warning
+            annotations:
+              summary: CloudPose pod CPU above 80% of its limit for 2 minutes
+          - alert: CloudPoseHighErrorRate
+            expr: |
+              sum(rate(cloudpose_http_requests_total{status=~"5.."}[2m]))
+                /
+              sum(rate(cloudpose_http_requests_total[2m])) > 0.05
+            for: 2m
+            labels:
+              severity: critical
+            annotations:
+              summary: More than 5% of CloudPose requests are failing with 5xx
+          - alert: CloudPoseHighP95Latency
+            expr: |
+              histogram_quantile(0.95, sum by (le) (rate(cloudpose_http_request_duration_seconds_bucket{handler=~"/pose/.*"}[2m]))) > 2
+            for: 2m
+            labels:
+              severity: warning
+            annotations:
+              summary: CloudPose p95 latency above 2 s
+          - alert: CloudPoseHPAAtMax
+            expr: |
+              kube_horizontalpodautoscaler_status_current_replicas{horizontalpodautoscaler="cloudpose-hpa"}
+                >= kube_horizontalpodautoscaler_spec_max_replicas{horizontalpodautoscaler="cloudpose-hpa"}
+            for: 5m
+            labels:
+              severity: warning
+            annotations:
+              summary: CloudPose HPA has been at max replicas for 5 minutes (no headroom left)

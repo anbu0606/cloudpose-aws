@@ -1,0 +1,9 @@
+# Pinned so every build is identical. TensorFlow 2.13 caps numpy (<1.25) and
+# typing-extensions (<4.6), which rules out Pydantic 2 -> FastAPI 0.99 + Pydantic 1.10.
+fastapi==0.99.1
+pydantic==1.10.13
+uvicorn==0.23.2
+numpy==1.24.3
+tensorflow-cpu==2.13.0
+opencv-python-headless==4.8.1.78
+prometheus-client==0.20.0

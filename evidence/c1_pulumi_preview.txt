@@ -1,0 +1,17 @@
+Previewing update (demo):
+
+@ previewing update....
+    pulumi:providers:aws default_7_51_1  error: pulumi:providers:aws resource 'default_7_51_1' has a problem: The configured AWS credentials are invalid or have expired.
+    pulumi:pulumi:Stack cloudpose-pulumi-demo  
+    pulumi:providers:aws default_7_51_1  1 error
+Diagnostics:
+  pulumi:providers:aws (default_7_51_1):
+    error: pulumi:providers:aws resource 'default_7_51_1' has a problem: The configured AWS credentials are invalid or have expired.
+    Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.
+    NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.
+    Learn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc
+
+Resources:
+    1 unchanged
+    1 errored
+

@@ -1,0 +1,58 @@
+Previewing destroy (demo):
+
+ -  aws:ecr:LifecyclePolicy cloudpose-prod-keep-5 delete 
+ -  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-dev-public-block delete 
+ -  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-prod-public-block delete 
+ -  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-dev-sse delete 
+ -  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-prod-sse delete 
+ -  aws:s3:BucketVersioning cloudpose-artifacts-prod-versioning delete 
+ -  aws:ecr:LifecyclePolicy cloudpose-dev-keep-5 delete 
+ -  aws:s3:BucketVersioning cloudpose-artifacts-dev-versioning delete 
+ -  aws:s3:Bucket cloudpose-artifacts-prod delete 
+ -  aws:s3:Bucket cloudpose-artifacts-dev delete 
+ -  aws:ecr:Repository cloudpose-prod delete 
+ -  aws:ecr:Repository cloudpose-dev delete 
+ -  pulumi:pulumi:Stack cloudpose-pulumi-demo delete 
+ -  pulumi:pulumi:Stack cloudpose-pulumi-demo delete 
+    pulumi:pulumi:Stack cloudpose-pulumi-demo  
+Resources:
+    - 13 to delete
+
+Destroying (demo):
+
+ -  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-prod-public-block deleting (0s) 
+ -  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-dev-public-block deleting (0s) 
+ -  aws:s3:BucketVersioning cloudpose-artifacts-dev-versioning deleting (0s) 
+ -  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-dev-sse deleting (0s) 
+ -  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-prod-sse deleting (0s) 
+ -  aws:s3:BucketVersioning cloudpose-artifacts-prod-versioning deleting (0s) 
+ -  aws:ecr:LifecyclePolicy cloudpose-dev-keep-5 deleting (0s) 
+ -  aws:ecr:LifecyclePolicy cloudpose-prod-keep-5 deleting (0s) 
+ -  aws:ecr:LifecyclePolicy cloudpose-dev-keep-5 deleted (0.17s) 
+ -  aws:ecr:LifecyclePolicy cloudpose-prod-keep-5 deleted (0.27s) 
+@ destroying....
+ -  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-prod-public-block deleted (0.48s) 
+ -  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-prod-sse deleted (0.58s) 
+ -  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-dev-public-block deleted (0.69s) 
+ -  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-dev-sse deleted (0.70s) 
+ -  aws:s3:BucketVersioning cloudpose-artifacts-prod-versioning deleted (0.87s) 
+ -  aws:s3:BucketVersioning cloudpose-artifacts-dev-versioning deleted (0.97s) 
+ -  aws:ecr:Repository cloudpose-dev deleting (0s) 
+ -  aws:ecr:Repository cloudpose-prod deleting (0s) 
+ -  aws:s3:Bucket cloudpose-artifacts-prod deleting (0s) 
+ -  aws:s3:Bucket cloudpose-artifacts-dev deleting (0s) 
+ -  aws:ecr:Repository cloudpose-dev deleted (0.17s) 
+ -  aws:ecr:Repository cloudpose-prod deleted (0.26s) 
+@ destroying....
+ -  aws:s3:Bucket cloudpose-artifacts-prod deleted (0.57s) 
+ -  aws:s3:Bucket cloudpose-artifacts-dev deleted (0.57s) 
+ -  pulumi:pulumi:Stack cloudpose-pulumi-demo deleting (0s) 
+    pulumi:pulumi:Stack cloudpose-pulumi-demo  
+ -  pulumi:pulumi:Stack cloudpose-pulumi-demo deleted (0.02s) 
+Resources:
+    - 13 deleted
+
+Duration: 3s
+
+The resources in the stack have been deleted, but the history and configuration associated with the stack are still maintained. 
+If you want to remove the stack completely, run `pulumi stack rm demo`.

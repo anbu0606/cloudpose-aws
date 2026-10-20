@@ -1,0 +1,12 @@
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+../usr/local/lib/python3.11/site-packages/tensorflow/python/debug/cli/debugger_cli_common.py:19
+  /usr/local/lib/python3.11/site-packages/tensorflow/python/debug/cli/debugger_cli_common.py:19: DeprecationWarning: module 'sre_constants' is deprecated
+    import sre_constants
+
+../home/appuser/.local/lib/python3.11/site-packages/httpx/_client.py:690
+  /home/appuser/.local/lib/python3.11/site-packages/httpx/_client.py:690: DeprecationWarning: The 'app' shortcut is now deprecated. Use the explicit style 'transport=WSGITransport(app=...)' instead.
+    warnings.warn(message, DeprecationWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 2 warnings in 3.16s

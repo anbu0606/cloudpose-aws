@@ -1,0 +1,7 @@
+# A Pulumi "project": the program below + the language it runs in.
+name: cloudpose-pulumi
+description: CloudPose building blocks (S3 + ECR) written in TypeScript with Pulumi
+runtime:
+  name: nodejs
+  options:
+    typescript: true

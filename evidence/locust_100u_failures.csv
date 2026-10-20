@@ -1,0 +1,13 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+POST,/pose/json,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(0 bytes read, 481 more expected)', IncompleteRead(0 bytes read, 481 more expected)))",1,2026-10-16T13:45:37Z,2026-10-16T13:45:37Z
+POST,/pose/image,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(209960 bytes read, 18890 more expected)', IncompleteRead(209960 bytes read, 18890 more expected)))",1,2026-10-16T13:46:11Z,2026-10-16T13:46:11Z
+POST,/pose/image,RemoteDisconnected('Remote end closed connection without response'),154,2026-10-16T13:45:01Z,2026-10-16T13:49:46Z
+POST,/pose/image,"ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)",7,2026-10-16T13:45:56Z,2026-10-16T13:52:37Z
+POST,/pose/image,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(0 bytes read, 195466 more expected)', IncompleteRead(0 bytes read, 195466 more expected)))",1,2026-10-16T13:46:11Z,2026-10-16T13:46:11Z
+POST,/pose/image,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(110048 bytes read, 139558 more expected)', IncompleteRead(110048 bytes read, 139558 more expected)))",2,2026-10-16T13:46:11Z,2026-10-16T13:46:28Z
+POST,/pose/image,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(214304 bytes read, 35302 more expected)', IncompleteRead(214304 bytes read, 35302 more expected)))",1,2026-10-16T13:46:11Z,2026-10-16T13:46:11Z
+POST,/pose/json,RemoteDisconnected('Remote end closed connection without response'),133,2026-10-16T13:45:19Z,2026-10-16T13:49:29Z
+POST,/pose/image,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(110048 bytes read, 109506 more expected)', IncompleteRead(110048 bytes read, 109506 more expected)))",1,2026-10-16T13:46:11Z,2026-10-16T13:46:11Z
+POST,/pose/image,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(110048 bytes read, 36782 more expected)', IncompleteRead(110048 bytes read, 36782 more expected)))",3,2026-10-16T13:45:37Z,2026-10-16T13:46:11Z
+POST,/pose/json,"ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)",5,2026-10-16T13:46:58Z,2026-10-16T13:52:37Z
+POST,/pose/image,"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(110048 bytes read, 85418 more expected)', IncompleteRead(110048 bytes read, 85418 more expected)))",1,2026-10-16T13:46:11Z,2026-10-16T13:46:11Z

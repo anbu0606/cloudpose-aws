@@ -1,0 +1,15 @@
+# kind = "Kubernetes IN Docker": each node below is a Docker container on your laptop.
+# 1 control plane + 2 workers mirrors the original 3-VM kubeadm cluster on Oracle Cloud.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: cloudpose
+nodes:
+  - role: control-plane
+    # Forward the NodePort out of the node container to Windows, so
+    # http://localhost:30006 reaches the CloudPose Service.
+    extraPortMappings:
+      - containerPort: 30006
+        hostPort: 30006
+        protocol: TCP
+  - role: worker
+  - role: worker

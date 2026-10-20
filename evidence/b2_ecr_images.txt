@@ -1,0 +1,43 @@
+---------------------------------------------------------------------------------------------------------
+|                                            DescribeImages                                             |
++-------------------------------------------------------------------------------------------------------+
+||                                            imageDetails                                             ||
+|+-------------------------+---------------------------------------------------------------------------+|
+||  artifactMediaType      |  application/vnd.oci.image.config.v1+json                                 ||
+||  imageDigest            |  sha256:aa628ae59adde094b6e8cb30f65a5bc9c69298595a0806ea57a1d107ccc880d7  ||
+||  imageManifestMediaType |  application/vnd.oci.image.manifest.v1+json                               ||
+||  imagePushedAt          |  2026-10-19T01:02:17.824000+11:00                                         ||
+||  imageSizeInBytes       |  456105772                                                                ||
+||  imageStatus            |  ACTIVE                                                                   ||
+||  registryId             |  <account-id>                                                             ||
+||  repositoryName         |  cloudpose                                                                ||
+||  subjectManifestDigest  |                                                                           ||
+|+-------------------------+---------------------------------------------------------------------------+|
+||                                            imageDetails                                             ||
+|+-------------------------+---------------------------------------------------------------------------+|
+||  artifactMediaType      |  application/vnd.docker.attestation.manifest.v1+json                      ||
+||  imageDigest            |  sha256:3fe260b63c50d1f8226a0c940dfac56f5f913da31bb81d50da7629bed0c0e585  ||
+||  imageManifestMediaType |  application/vnd.oci.image.manifest.v1+json                               ||
+||  imagePushedAt          |  2026-10-19T01:02:17.813000+11:00                                         ||
+||  imageSizeInBytes       |  1163                                                                     ||
+||  imageStatus            |  ACTIVE                                                                   ||
+||  registryId             |  <account-id>                                                             ||
+||  repositoryName         |  cloudpose                                                                ||
+||  subjectManifestDigest  |  sha256:aa628ae59adde094b6e8cb30f65a5bc9c69298595a0806ea57a1d107ccc880d7  ||
+|+-------------------------+---------------------------------------------------------------------------+|
+||                                            imageDetails                                             ||
+|+-------------------------+---------------------------------------------------------------------------+|
+||  artifactMediaType      |                                                                           ||
+||  imageDigest            |  sha256:3eacd7bf90d36062a1e91405fdde37b65f76e2fbeecd8c4d35528fd1b5255b72  ||
+||  imageManifestMediaType |  application/vnd.oci.image.index.v1+json                                  ||
+||  imagePushedAt          |  2026-10-19T01:02:18.045000+11:00                                         ||
+||  imageSizeInBytes       |  456105772                                                                ||
+||  imageStatus            |  ACTIVE                                                                   ||
+||  registryId             |  <account-id>                                                             ||
+||  repositoryName         |  cloudpose                                                                ||
+||  subjectManifestDigest  |                                                                           ||
+|+-------------------------+---------------------------------------------------------------------------+|
+|||                                             imageTags                                             |||
+||+---------------------------------------------------------------------------------------------------+||
+|||  0.3.0                                                                                            |||
+||+---------------------------------------------------------------------------------------------------+||

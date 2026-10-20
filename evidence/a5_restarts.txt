@@ -1,0 +1,17 @@
+
+Name:             cloudpose-deployment-7cdf45d474-nzdhd
+    Last State:     Terminated
+      Reason:       Unknown
+    Restart Count:  2
+    ConfigMapName:            kube-root-ca.crt
+Topology Spread Constraints:  kubernetes.io/hostname:ScheduleAnyway when max skew 1 is exceeded for selector 
+app=cloudpose
+Name:             cloudpose-deployment-7cdf45d474-zfr52
+    Last State:     Terminated
+      Reason:       Unknown
+    Restart Count:  2
+    ConfigMapName:            kube-root-ca.crt
+Topology Spread Constraints:  kubernetes.io/hostname:ScheduleAnyway when max skew 1 is exceeded for selector 
+app=cloudpose
+
+

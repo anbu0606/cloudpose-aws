@@ -1,0 +1,29 @@
+# Terraform: providers cache + state (state can contain secrets) + var files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!example.tfvars
+crash.log
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Secrets
+.env
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Screenshots stay local (privacy)
+evidence/**/*.png
+evidence/**/*.jpg
+evidence/**/*.jpeg
+evidence/**/*.gif
+evidence/**/*.webp

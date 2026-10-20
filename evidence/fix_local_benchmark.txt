@@ -1,0 +1,13 @@
+CloudPose v0.2.0 vs v0.3.0 - local benchmark in a Linux sandbox (17 Oct 2026)
+Same machine, same sample image, one uvicorn process (no CPU limit), 80 requests sent 40 at a time.
+Not the kind cluster: it isolates the app change. The real cluster rerun is the A5b Locust test.
+
+                         v0.2.0 (model loaded per request)   v0.3.0 (model loaded once)
+Idle memory (RSS)        343 MB                               395 MB
+Peak memory, 40 at once  1,675 MB  (> 1 GiB pod limit)        502 MB
+Throughput, 40 at once   10.6 req/s                           20.9 req/s
+Single request latency   ~70-110 ms                           ~50-60 ms
+
+Conclusion: per-request model loading makes memory grow with concurrency; at 40 parallel
+requests one process needs ~1.7 GB, so a 1 GiB pod is OOMKilled. Loading once keeps memory
+flat at ~0.5 GB and doubles throughput. Tests: 7 passed (incl. model reuse + 32 parallel requests).

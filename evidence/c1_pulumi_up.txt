@@ -1,0 +1,77 @@
+Previewing update (demo):
+
+ +  pulumi:pulumi:Stack cloudpose-pulumi-demo create 
+@ previewing update.....
+ +  aws:s3:Bucket cloudpose-artifacts-prod create 
+ +  aws:s3:Bucket cloudpose-artifacts-dev create 
+ +  aws:ecr:Repository cloudpose-prod create 
+ +  aws:ecr:Repository cloudpose-dev create 
+ +  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-prod-sse create 
+ +  aws:s3:BucketVersioning cloudpose-artifacts-dev-versioning create 
+ +  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-dev-public-block create 
+ +  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-prod-public-block create 
+ +  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-dev-sse create 
+ +  aws:s3:BucketVersioning cloudpose-artifacts-prod-versioning create 
+ +  aws:ecr:LifecyclePolicy cloudpose-prod-keep-5 create 
+ +  aws:ecr:LifecyclePolicy cloudpose-dev-keep-5 create 
+ +  pulumi:pulumi:Stack cloudpose-pulumi-demo create 
+Outputs:
+    artifactBuckets  : {
+        dev : "cloudpose-artifacts-dev-19ad8f3"
+        prod: "cloudpose-artifacts-prod-fc56efc"
+    }
+    ecrRepositoryUrls: {
+        dev : [unknown]
+        prod: [unknown]
+    }
+
+Resources:
+    + 13 to create
+
+Updating (demo):
+
+ +  pulumi:pulumi:Stack cloudpose-pulumi-demo creating (0s) 
+@ updating.....
+ +  aws:ecr:Repository cloudpose-dev creating (0s) 
+ +  aws:s3:Bucket cloudpose-artifacts-prod creating (0s) 
+ +  aws:ecr:Repository cloudpose-prod creating (0s) 
+ +  aws:s3:Bucket cloudpose-artifacts-dev creating (0s) 
+ +  aws:ecr:Repository cloudpose-dev created (0.30s) 
+ +  aws:ecr:Repository cloudpose-prod created (0.29s) 
+ +  aws:ecr:LifecyclePolicy cloudpose-dev-keep-5 creating (0s) 
+ +  aws:ecr:LifecyclePolicy cloudpose-prod-keep-5 creating (0s) 
+ +  aws:ecr:LifecyclePolicy cloudpose-dev-keep-5 created (0.15s) 
+ +  aws:ecr:LifecyclePolicy cloudpose-prod-keep-5 created (0.16s) 
+@ updating....
+ +  aws:s3:Bucket cloudpose-artifacts-prod created (1s) 
+ +  aws:s3:Bucket cloudpose-artifacts-dev created (1s) 
+ +  aws:s3:BucketVersioning cloudpose-artifacts-prod-versioning creating (0s) 
+ +  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-prod-public-block creating (0s) 
+ +  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-prod-sse creating (0s) 
+ +  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-dev-sse creating (0s) 
+ +  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-dev-public-block creating (0s) 
+ +  aws:s3:BucketVersioning cloudpose-artifacts-dev-versioning creating (0s) 
+@ updating....
+ +  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-prod-public-block created (0.29s) 
+ +  aws:s3:BucketPublicAccessBlock cloudpose-artifacts-dev-public-block created (0.38s) 
+ +  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-dev-sse created (0.57s) 
+ +  aws:s3:BucketServerSideEncryptionConfiguration cloudpose-artifacts-prod-sse created (0.63s) 
+@ updating....
+ +  aws:s3:BucketVersioning cloudpose-artifacts-prod-versioning created (1s) 
+ +  aws:s3:BucketVersioning cloudpose-artifacts-dev-versioning created (1s) 
+ +  pulumi:pulumi:Stack cloudpose-pulumi-demo created (4s) 
+Outputs:
+    artifactBuckets  : {
+        dev : "cloudpose-artifacts-dev-14ebe07"
+        prod: "cloudpose-artifacts-prod-54af95e"
+    }
+    ecrRepositoryUrls: {
+        dev : "<account-id>.dkr.ecr.ap-southeast-2.amazonaws.com/cloudpose-dev-e496b5f"
+        prod: "<account-id>.dkr.ecr.ap-southeast-2.amazonaws.com/cloudpose-prod-7afb0fd"
+    }
+
+Resources:
+    + 13 created
+
+Duration: 6s
+
